@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <input type="text" placeholder="enter city name" spellcheck="false">
             <button><img src="images/search.png" alt="search icon"></button>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png" alt="weather images">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png" alt="humidity">
+                    <div>
+                        <p class="humidty"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
 
 </body>
 </html>
-
-echo "# weather-app" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/michseixas/weather-app.git
-git push -u origin main
