@@ -99,4 +99,18 @@ body{
     margin-top: -6px;
 }
 
+/*shows the weather info only after searching for a city and clicking*/
+.weather{
+    display: none;
+}
+
+/*update the size of the icons text*/
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
 
