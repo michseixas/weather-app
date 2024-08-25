@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="card">
@@ -15,20 +17,50 @@
             <button><img src="images/search.png" alt="search icon"></button>
         </div>
         <div class="weather">
-            <img src="images/rain.png" alt="weather images">
+            <img src="images/rain.png" class="weather-icon" alt="weather images">
             <h1 class="temp">22°c</h1>
             <h2 class="city">New York</h2>
             <div class="details">
                 <div class="col">
                     <img src="images/humidity.png" alt="humidity">
                     <div>
-                        <p class="humidty"></p>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="images/wind.png" alt="wind">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+<script>
+
+    const apiKey = "cc4cb7b0c9c49bf96969b4ee27d9287b";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+    async function checkWeather(city){
+        const response = await fetch(apiUrl + city +`&appid=${apiKey}`);
+        var data = await response.json();
+
+        console.log(data);
+
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+ "°c";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+    }
+
+    checkWeather(); //whenever we call checkWeather() we have to pass the city name , that will come from the input field
+
+</script>
 
 </body>
+
 </html>
