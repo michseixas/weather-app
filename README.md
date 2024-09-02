@@ -2,12 +2,16 @@
 
 App that displays the Temperature, Wind Speed and Humidity for cities around the world .
 Please sign up on https://openweathermap.org/api to generate your apiKey and try this app.
-(index.html ln47)
+Latest update includes a modal to enter the apiKey and save it in the localStorage, so that you can always use you weather app
+without having to enter the apiKey each time. 
 
 Enjoy =^..^=
  
- Search:
- ![Example Image](./images/entercity.png)
+ Before searching, click on the link to enter your Api Key:
+ ![Example Image](./images/app-enter-api-key.png)
+
+  Modal to enter your Api Key:
+ ![Example Image](./images/modal-enter-api-key.png)
 
  Search result displaying data:
  ![Example Image](./images/weatherapp.png)

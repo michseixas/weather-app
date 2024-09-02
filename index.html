@@ -13,9 +13,10 @@
 
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
             <button><img src="images/search.png" alt="search icon"></button>
         </div>
+        <a class="api-key-link" id="api-link">Enter API Key</a> <!--Link for opening modal and entering api key -->
         <div class="error">
             <p>Invalid city name</p>
         </div>
@@ -41,23 +42,68 @@
             </div>
         </div>
     </div>
+        <!-- Modal -->
+    <div id="apiKeyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Enter your API Key</h3>
+            <input type="text" id="apiKeyInput" placeholder="API Key">
+            <button class="save-btn">Save</button>
+        </div>
+    </div>
 
     <script>
 
-        const apiKey = ""; //sign up on weathermap.org and get you apikey to try this app :))
+        //not used since we use Modal and localStorage---> const apiKey = ""; //sign up on weathermap.org and get you apikey to try this app :))
         const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
 
+        // Check if API key exists in localStorage
+        let apiKey = localStorage.getItem("apiKey");
+        if(apiKey){
+            document.getElementById("api-link").style.display = "none";
+        }
+
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("apiKeyModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("apiKeyModal").style.display = "none";
+        }
+
+        // Function to save the API key
+        function saveApiKey() {
+            const apiKeyInput = document.getElementById("apiKeyInput").value;
+            if (apiKeyInput) {
+                localStorage.setItem("apiKey", apiKeyInput);
+                apiKey = apiKeyInput; // update the apiKey variable
+                closeModal();
+            }
+        }
+
+        // Function to check the weather
         async function checkWeather(city) {
+
+            if (!apiKey) { //if there is no Api key, open modal.
+                openModal();
+                return;
+            }            
             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
             if (response.status == 404) { //if city name invalid
-                document.querySelector(".error").style.display = "block"
-                document.querySelector(".weather").style.display = "none"
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
             } else {
-                var data = await response.json();
+                const data = await response.json();
+            
+            
+                document.getElementById("api-link").style.display = "none"; //once the api key is in localStorage, no need to keep show the link that asks for an apikey
+                  
 
                 document.querySelector(".city").innerHTML = data.name;
                 document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
@@ -86,6 +132,16 @@
             }
 
         }
+
+        // Event listeners
+        document.querySelector(".api-key-link").addEventListener("click", openModal);
+        document.querySelector(".close").addEventListener("click", closeModal);
+        document.querySelector(".save-btn").addEventListener("click", saveApiKey);
+        window.addEventListener("click", (event) => {
+            if (event.target == document.getElementById("apiKeyModal")) {
+                closeModal();
+            }
+        });
 
 
 
