@@ -1,128 +1,130 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', 'sans-serif';
     box-sizing: border-box;
 }
 
-body{
+html {
+    font-size: 10px; /* Base size set to 10px for easy rem calculations */
+}
+
+body {
     background: #222;
 }
 
-.card{
+.card {
     width: 90%;
-    max-width: 470px;
+    max-width: 47rem; /* Equivalent to 470px */
     background: linear-gradient(135deg, #00feba, #5b548a);
     color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
+    margin: 10rem auto 0; /* Equivalent to 100px */
+    border-radius: 2rem; /* Equivalent to 20px */
+    padding: 4rem 3.5rem; /* Equivalent to 40px 35px */
     text-align: center;
 }
 
-.search{ 
+.search { 
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.search input{
+.search input {
     border: 0;
     outline: 0;
     background: #ebfffc;
     color: #555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
+    padding: 1rem 2.5rem; /* Equivalent to 10px 25px */
+    height: 6rem; /* Equivalent to 60px */
+    border-radius: 3rem; /* Equivalent to 30px */
     flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
-    
+    margin-right: 1.6rem; /* Equivalent to 16px */
+    font-size: 1.8rem; /* Equivalent to 18px */
 }
 
-.search button{
+.search button {
     border: 0;
     outline: 0;
     background: #ebfffc;
     border-radius: 50%;
-    width:  60px;
-    height: 60px;
+    width: 6rem; /* Equivalent to 60px */
+    height: 6rem; /* Equivalent to 60px */
     cursor: pointer;
 }
 
-.search button img{
-    width: 16px;
+.search button img {
+    width: 1.6rem; /* Equivalent to 16px */
 }
 
-.weather-icon{
-    width: 170px;
-    margin-top: 30px;
+.weather-icon {
+    width: 40vw; /* Use viewport width for scaling images responsively */
+    max-width: 17rem; /* Equivalent to 170px */
+    margin-top: 3rem; /* Equivalent to 30px */
 }
 
-/* Temperature*/
-.weather h1{
-    font-size: 80px;
+/* Temperature */
+.weather h1 {
+    font-size: 8rem; /* Equivalent to 80px */
     font-weight: 500;
 }
 
-/* Location name*/
-.weather h2{
-    font-size: 45px;
+/* Location name */
+.weather h2 {
+    font-size: 4.5rem; /* Equivalent to 45px */
     font-weight: 400;
-    margin-top: -10px;
+    margin-top: -1rem; /* Equivalent to -10px */
 }
 
-.details{
+.details {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    padding: 0 2rem; /* Equivalent to 20px */
+    margin-top: 5rem; /* Equivalent to 50px */
 }
 
-.col{
+.col {
     display: flex;
     align-items: center;
     text-align: left;
 }
 
-/*update the size of the icons*/
-.col  img{
-    width: 40px;
-    margin-right: 10px;
+/* Update the size of the icons */
+.col img {
+    width: 4rem; /* Equivalent to 40px */
+    margin-right: 1rem; /* Equivalent to 10px */
 }
 
-/*update the size of the icons text*/
+/* Update the size of the icons text */
 .humidity, .wind {
-    font-size: 28px;
-    margin-top: -6px;
+    font-size: 2.8rem; /* Equivalent to 28px */
+    margin-top: -0.6rem; /* Equivalent to -6px */
 }
 
-/*shows the weather info only after searching for a city and clicking*/
-.weather{
+/* Shows the weather info only after searching for a city and clicking */
+.weather {
     display: none;
 }
 
-/*update the size of the icons text*/
-.error{
+/* Update the size of the error message */
+.error {
     text-align: left;
-    margin-left: 10px;
-    font-size: 14px;
-    margin-top: 10px;
+    margin-left: 1rem; /* Equivalent to 10px */
+    font-size: 1.4rem; /* Equivalent to 14px */
+    margin-top: 1rem; /* Equivalent to 10px */
     display: none;
 }
 
-
-
-/*Extra: styles for API key input */
+/* Extra: styles for API key input */
 .api-key-link {
     display: block;
-    margin: 10px 0;
+    margin: 1rem 0; /* Equivalent to 10px */
     color: #007BFF;
     text-decoration: underline;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1.4rem; /* Equivalent to 14px */
 }
 
 .modal {
@@ -134,25 +136,24 @@ body{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    padding-top: 6rem; /* Equivalent to 60px */
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
-    padding: 20px;
+    padding: 2rem; /* Equivalent to 20px */
     border: 1px solid #888;
     width: 80%;
-    max-width: 300px;
+    max-width: 30rem; /* Equivalent to 300px */
     text-align: center;
 }
 
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 2.8rem; /* Equivalent to 28px */
     font-weight: bold;
 }
 
@@ -164,11 +165,30 @@ body{
 }
 
 .save-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
+    margin-top: 1rem; /* Equivalent to 10px */
+    padding: 0.5rem 1rem; /* Equivalent to 5px 10px */
     background-color: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .weather h1 {
+        font-size: 4rem; /* Resize based on smaller screens */
+    }
+
+    .weather h2 {
+        font-size: 2rem;
+    }
+
+    .weather-icon {
+        width: 30vw;
+        max-width: 12rem; /* Equivalent to 120px */
+    }
+
+    .humidity, .wind {
+        font-size: 1.5rem; /* Equivalent to 15px */
+    }
+}

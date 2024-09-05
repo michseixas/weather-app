@@ -13,8 +13,8 @@
 
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt="search icon"></button>
+            <input id= "cityInput" type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img id="searchBtn" src="images/search.png" alt="search icon"></button>
         </div>
         <a class="api-key-link" id="api-link">Enter API Key</a> <!--Link for opening modal and entering api key -->
         <div class="error">
@@ -59,6 +59,7 @@
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
         const weatherIcon = document.querySelector(".weather-icon");
+
 
         // Check if API key exists in localStorage
         let apiKey = localStorage.getItem("apiKey");
@@ -144,11 +145,17 @@
         });
 
 
-
+    // Search button click event
         searchBtn.addEventListener("click", () => {
             checkWeather(searchBox.value);//whenever we call checkWeather() we have to pass the city name , that will come from the input field
         });
-
+        
+    // Adding the Enter key press event for the input field
+    searchBox.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            checkWeather(searchBox.value); // Trigger checkWeather when Enter is pressed
+        }
+    });
 
     </script>
 
